@@ -58,6 +58,8 @@ void ConfigureServices(ServiceCollection services)
     services.AddTransient<Comb>();
     services.AddTransient<Insert>();
     services.AddTransient<DefaultDotNet>();
+    services.AddTransient<Select>();
+    services.AddTransient<Quick>();
 }
 void SortsArr(List<int> arr)
 {
@@ -75,11 +77,19 @@ void SortsArr(List<int> arr)
             fy?.Shuffle(arr);
         using (var shake = serviceProvider.GetService<Comb>())
             shake?.Sort(arr);
+        using (var fy = serviceProvider.GetService<FisherYeyts>())
+            fy?.Shuffle(arr);
+        using (var insert = serviceProvider.GetService<Insert>())
+            insert?.Sort(arr);
+        using (var fy = serviceProvider.GetService<FisherYeyts>())
+            fy?.Shuffle(arr);
+        using (var def = serviceProvider.GetService<Select>())
+            def?.Sort(arr);
     }
     using (var fy = serviceProvider.GetService<FisherYeyts>())
         fy?.Shuffle(arr);
-    using (var insert = serviceProvider.GetService<Insert>())
-        insert?.Sort(arr);
+    using (var def = serviceProvider.GetService<Quick>())
+        def?.Sort(arr);
     using (var fy = serviceProvider.GetService<FisherYeyts>())
         fy?.Shuffle(arr);
     using (var def = serviceProvider.GetService<DefaultDotNet>())

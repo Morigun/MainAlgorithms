@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MainAlgorithms.Sorting
 {
-    internal class DefaultDotNet : BaseAlgorithm, ISort
+    public class DefaultDotNet : BaseAlgorithm, ISort
     {
         public DefaultDotNet(IStat? stat) : base(stat, nameof(DefaultDotNet)){}
 
