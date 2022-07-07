@@ -11,6 +11,10 @@ namespace MainAlgorithms.Sorting
     internal class Linq : BaseAlgorithm, ISort
     {
         public Linq(IStat? stat) : base(stat, nameof(Linq)){}
+        public bool CanMore100K()
+        {
+            return true;
+        }
 
         public void Sort(List<int> list)
         {

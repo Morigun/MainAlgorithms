@@ -12,6 +12,11 @@ namespace MainAlgorithms.Sorting
     {
         public Bubble(IStat statService) : base(statService, nameof(Bubble)) { }
 
+        public bool CanMore100K()
+        {
+            return false;
+        }
+
         /// <summary>
         /// Bubble sort
         /// - Bad O(n^2)

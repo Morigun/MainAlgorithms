@@ -53,61 +53,34 @@ void ConfigureServices(ServiceCollection services)
     services.AddTransient<IStat, StatService>();
     services.AddTransient<FisherYeyts>();
     services.AddTransient<GuidShuffle>();
-    services.AddTransient<Shake>();
-    services.AddTransient<Bubble>();
-    services.AddTransient<Comb>();
-    services.AddTransient<Insert>();
-    services.AddTransient<DefaultDotNet>();
-    services.AddTransient<Select>();
-    services.AddTransient<Quick>();
-    services.AddTransient<Merge>();
-    services.AddTransient<Heap>();
-    services.AddTransient<Linq>();
+    services.AddTransient<ISort, Shake>();
+    services.AddTransient<ISort, Bubble>();
+    services.AddTransient<ISort, Comb>();
+    services.AddTransient<ISort, Insert>();
+    services.AddTransient<ISort, DefaultDotNet>();
+    services.AddTransient<ISort, Select>();
+    services.AddTransient<ISort, Quick>();
+    services.AddTransient<ISort, Merge>();
+    services.AddTransient<ISort, Heap>();
+    services.AddTransient<ISort, Linq>();
 }
 void SortsArr(List<int> arr)
 {
-    if (arr.Count < 100000)
+    var sorts = serviceProvider.GetServices<ISort>();
+    foreach(var sort in sorts)
     {
-        using (var bubble = serviceProvider.GetService<Bubble>())
-            bubble?.Sort(arr);
-        using (var fy = serviceProvider.GetService<FisherYeyts>())
-            fy?.Shuffle(arr);
-        using (var gs = serviceProvider.GetService<GuidShuffle>())
-            gs?.Shuffle(arr);
-        using (var shake = serviceProvider.GetService<Shake>())
-            shake?.Sort(arr);
-        using (var fy = serviceProvider.GetService<FisherYeyts>())
-            fy?.Shuffle(arr);
-        using (var shake = serviceProvider.GetService<Comb>())
-            shake?.Sort(arr);
-        using (var fy = serviceProvider.GetService<FisherYeyts>())
-            fy?.Shuffle(arr);
-        using (var insert = serviceProvider.GetService<Insert>())
-            insert?.Sort(arr);
-        using (var fy = serviceProvider.GetService<FisherYeyts>())
-            fy?.Shuffle(arr);
-        using (var def = serviceProvider.GetService<Select>())
-            def?.Sort(arr);
+        if (arr.Count < 100000)
+        {
+            sort.Sort(arr);
+            using (var fy = serviceProvider.GetService<FisherYeyts>())
+                fy?.Shuffle(arr);
+        }
+        else if (sort.CanMore100K())
+        {
+            sort.Sort(arr);
+            using (var fy = serviceProvider.GetService<FisherYeyts>())
+                fy?.Shuffle(arr);
+        }
     }
-    using (var fy = serviceProvider.GetService<FisherYeyts>())
-        fy?.Shuffle(arr);
-    using (var def = serviceProvider.GetService<Quick>())
-        def?.Sort(arr);
-    using (var fy = serviceProvider.GetService<FisherYeyts>())
-        fy?.Shuffle(arr);
-    using (var def = serviceProvider.GetService<Merge>())
-        def?.Sort(arr);
-    using (var fy = serviceProvider.GetService<FisherYeyts>())
-        fy?.Shuffle(arr);
-    using (var def = serviceProvider.GetService<Heap>())
-        def?.Sort(arr);
-    using (var fy = serviceProvider.GetService<FisherYeyts>())
-        fy?.Shuffle(arr);
-    using (var def = serviceProvider.GetService<DefaultDotNet>())
-        def?.Sort(arr);
-    using (var fy = serviceProvider.GetService<FisherYeyts>())
-        fy?.Shuffle(arr);
-    using (var def = serviceProvider.GetService<Linq>())
-        def?.Sort(arr);
 }
 #endregion

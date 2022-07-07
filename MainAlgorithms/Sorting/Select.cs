@@ -10,7 +10,11 @@ namespace MainAlgorithms.Sorting
 {
     public class Select : BaseAlgorithm, ISort
     {
-        public Select(IStat? stat) : base(stat, nameof(Select)){}
+        public Select(IStat? stat) : base(stat, nameof(Select)){ }
+        public bool CanMore100K()
+        {
+            return false;
+        }
         /// <summary>
         /// Select sort
         /// - Bad O(n^2)

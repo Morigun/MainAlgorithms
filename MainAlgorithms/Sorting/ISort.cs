@@ -10,5 +10,6 @@ namespace MainAlgorithms.Sorting
     interface ISort
     {
         void Sort(List<int> list);
+        bool CanMore100K();
     }
 }

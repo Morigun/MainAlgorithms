@@ -10,7 +10,11 @@ namespace MainAlgorithms.Sorting
 {
     public class Quick : BaseAlgorithm, ISort
     {
-        public Quick(IStat? stat) : base(stat, nameof(Quick)){}
+        public Quick(IStat? stat) : base(stat, nameof(Quick)){ }
+        public bool CanMore100K()
+        {
+            return true;
+        }
         /// <summary>
         /// Quick sort
         /// - Bad O(n^2)

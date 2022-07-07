@@ -10,7 +10,11 @@ namespace MainAlgorithms.Sorting
 {
     public class Comb : BaseAlgorithm, ISort
     {
-        public Comb(IStat? statService) : base(statService, nameof(Comb)){}
+        public Comb(IStat? statService) : base(statService, nameof(Comb)){ }
+        public bool CanMore100K()
+        {
+            return false;
+        }
         /// <summary>
         /// Sort comb
         /// - Bad O(n^2)

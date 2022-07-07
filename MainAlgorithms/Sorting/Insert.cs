@@ -10,7 +10,11 @@ namespace MainAlgorithms.Sorting
 {
     public class Insert : BaseAlgorithm, ISort
     {
-        public Insert(IStat? statService) : base(statService, nameof(Insert)){}
+        public Insert(IStat? statService) : base(statService, nameof(Insert)){ }
+        public bool CanMore100K()
+        {
+            return false;
+        }
         /// <summary>
         /// Insert sort
         /// - Bad O(n^2)

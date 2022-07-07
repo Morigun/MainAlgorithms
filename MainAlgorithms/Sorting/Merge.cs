@@ -11,6 +11,10 @@ namespace MainAlgorithms.Sorting
     public class Merge : BaseAlgorithm, ISort
     {
         public Merge(IStat? stat) : base(stat, nameof(Merge)){}
+        public bool CanMore100K()
+        {
+            return true;
+        }
         /// <summary>
         /// Merge sort
         /// - Bad O(n log n)

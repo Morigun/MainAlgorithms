@@ -11,6 +11,10 @@ namespace MainAlgorithms.Sorting
     public class Heap : BaseAlgorithm, ISort
     {
         public Heap(IStat? stat) : base(stat, nameof(Heap)){}
+        public bool CanMore100K()
+        {
+            return true;
+        }
         /// <summary>
         /// Sort heap
         /// - Bad O(n log n)

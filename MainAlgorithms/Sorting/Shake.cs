@@ -11,6 +11,10 @@ namespace MainAlgorithms.Sorting
     public class Shake : BaseAlgorithm, ISort
     {
         public Shake(IStat? statService) : base(statService, nameof(Shake)) { }
+        public bool CanMore100K()
+        {
+            return false;
+        }
         /// <summary>
         /// Shake sort
         /// - Bad O(n^2)

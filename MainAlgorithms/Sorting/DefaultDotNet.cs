@@ -12,6 +12,10 @@ namespace MainAlgorithms.Sorting
     public class DefaultDotNet : BaseAlgorithm, ISort
     {
         public DefaultDotNet(IStat? stat) : base(stat, nameof(DefaultDotNet)){}
+        public bool CanMore100K()
+        {
+            return true;
+        }
 
         public void Sort(List<int> list)
         {
