@@ -41,9 +41,9 @@ namespace MainAlgorithms.Sorting
         {
             if (left < right)
             {
-                int q = Partition(list, left, right);
-                QuickSortImpl(list, left, q - 1);
-                QuickSortImpl(list, q + 1, right);
+                int pivot = Partition(list, left, right);
+                QuickSortImpl(list, left, pivot - 1);
+                QuickSortImpl(list, pivot + 1, right);
             }
         }
     }
