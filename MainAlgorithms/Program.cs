@@ -99,14 +99,14 @@ void SortsArr(List<int> arr)
         def?.Sort(arr);
     using (var fy = serviceProvider.GetService<FisherYeyts>())
         fy?.Shuffle(arr);
-    using (var fy = serviceProvider.GetService<FisherYeyts>())
-        fy?.Shuffle(arr);
     using (var def = serviceProvider.GetService<Heap>())
         def?.Sort(arr);
     using (var fy = serviceProvider.GetService<FisherYeyts>())
         fy?.Shuffle(arr);
     using (var def = serviceProvider.GetService<DefaultDotNet>())
         def?.Sort(arr);
+    using (var fy = serviceProvider.GetService<FisherYeyts>())
+        fy?.Shuffle(arr);
     using (var def = serviceProvider.GetService<Linq>())
         def?.Sort(arr);
 }
